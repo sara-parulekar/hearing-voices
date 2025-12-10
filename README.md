@@ -1,4 +1,4 @@
-# Hearing Voices
+# hearing-voices
 
 A web project.
 
