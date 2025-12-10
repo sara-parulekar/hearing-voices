@@ -3,19 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hearing Voices</title>
+    <title>hearing voices</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Hearing Voices</h1>
-        </header>
-        <main>
-            <p>Your project starts here.</p>
-        </main>
+    <!-- BACKGROUND AUDIO -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="audio/audio file.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- HOMEPAGE -->
+    <div class="homepage" id="homepage">
+        <div class="header">
+            <h1 id="homepage-title"></h1>
+            <p id="homepage-description"></p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-item" onclick="showPoem(0)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice1.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">1</span></div>
+            </div>
+            <div class="video-item" onclick="showPoem(1)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice2.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">2</span></div>
+            </div>
+            <div class="video-item" onclick="showPoem(2)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice3.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">3</span></div>
+            </div>
+            <div class="video-item" onclick="showPoem(3)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice4.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">4</span></div>
+            </div>
+            <div class="video-item" onclick="showPoem(4)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice5.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">5</span></div>
+            </div>
+            <div class="video-item" onclick="showPoem(5)">
+                <video class="video-thumbnail" muted loop autoplay playsinline>
+                    <source src="videos/voice6.mp4" type="video/mp4">
+                </video>
+                <div class="video-label"><span class="voice-number">6</span></div>
+            </div>
+        </div>
     </div>
+
+    <!-- POEM PAGES -->
+    <!-- Voice 1 - with ASCII video -->
+    <div class="poem-page" id="poem0">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas0"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles0"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo0" style="display:none"></video>
+        <video id="userVideo0" style="display:none" loop></video>
+        <video id="defaultVideo0" style="display:none" loop preload="auto">
+            <source src="videos/voice1.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video0" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel0" style="display:none"></canvas>
+    </div>
+
+    <!-- Voice 2 - with ASCII video -->
+    <div class="poem-page" id="poem1">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles1"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo1" style="display:none"></video>
+        <video id="userVideo1" style="display:none" loop></video>
+        <video id="defaultVideo1" style="display:none" loop preload="auto">
+            <source src="videos/voice2.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video1" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel1" style="display:none"></canvas>
+    </div>
+
+    <!-- Voice 3 - with ASCII video -->
+    <div class="poem-page" id="poem2">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas2"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles2"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo2" style="display:none"></video>
+        <video id="userVideo2" style="display:none" loop></video>
+        <video id="defaultVideo2" style="display:none" loop preload="auto">
+            <source src="videos/voice3.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video2" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel2" style="display:none"></canvas>
+    </div>
+
+    <!-- Voice 4 - with ASCII video -->
+    <div class="poem-page" id="poem3">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas3"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles3"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo3" style="display:none"></video>
+        <video id="userVideo3" style="display:none" loop></video>
+        <video id="defaultVideo3" style="display:none" loop preload="auto">
+            <source src="videos/voice4.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video3" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel3" style="display:none"></canvas>
+    </div>
+
+    <!-- Voice 5 - with ASCII video -->
+    <div class="poem-page" id="poem4">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas4"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles4"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo4" style="display:none"></video>
+        <video id="userVideo4" style="display:none" loop></video>
+        <video id="defaultVideo4" style="display:none" loop preload="auto">
+            <source src="videos/voice5.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video4" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel4" style="display:none"></canvas>
+    </div>
+
+    <!-- Voice 6 - with ASCII video -->
+    <div class="poem-page" id="poem5">
+        <button class="nav-button prev" onclick="navigatePoem(-1)">‹</button>
+        <button class="nav-button next" onclick="navigatePoem(1)">›</button>
+        <div class="canvas-container">
+            <canvas id="canvas5"></canvas>
+        </div>
+        <div class="subtitles" id="subtitles5"></div>
+        <!-- Hidden videos for ASCII processing -->
+        <video id="webcamVideo5" style="display:none"></video>
+        <video id="userVideo5" style="display:none" loop></video>
+        <video id="defaultVideo5" style="display:none" loop preload="auto">
+            <source src="videos/voice6.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas-video5" style="display:none"></canvas>
+        <canvas id="canvas-video-pixel5" style="display:none"></canvas>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        are you <span class="header-link" onclick="showHome()">hearing voices</span>? do you know who's speaking? is it real or artificially generated?
+    </header>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        sara parulekar // risd gd 2025 // the future of literature
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
+    <script src="https://unpkg.com/mp4-muxer@4.3.3/build/mp4-muxer.umd.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-

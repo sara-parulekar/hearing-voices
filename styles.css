@@ -5,33 +5,356 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #000;
+    color: rgb(255, 255, 200);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
 }
 
-.container {
+/* HOMEPAGE STYLES */
+.homepage {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 60px 20px;
 }
 
-header {
+.header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+.homepage {
+    position: relative;
+    z-index: 1;
 }
 
-main {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.header h1 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
+.header p {
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 40px;
+    opacity: 0.9;
+}
+
+.video-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.video-item {
+    border: 1px solid #fff;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+    position: absolute;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    animation: float 20s infinite ease-in-out;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Different animation patterns for each thumbnail */
+.video-item:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation: float1 25s infinite ease-in-out;
+}
+
+.video-item:nth-child(2) {
+    top: 20%;
+    left: 50%;
+    animation: float2 30s infinite ease-in-out;
+}
+
+.video-item:nth-child(3) {
+    top: 60%;
+    left: 20%;
+    animation: float3 22s infinite ease-in-out;
+}
+
+.video-item:nth-child(4) {
+    top: 40%;
+    left: 70%;
+    animation: float4 28s infinite ease-in-out;
+}
+
+.video-item:nth-child(5) {
+    top: 70%;
+    left: 60%;
+    animation: float5 24s infinite ease-in-out;
+}
+
+.video-item:nth-child(6) {
+    top: 30%;
+    left: 80%;
+    animation: float6 26s infinite ease-in-out;
+}
+
+/* Keyframe animations for slow movement */
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(30px, -20px); }
+    50% { transform: translate(-15px, 25px); }
+    75% { transform: translate(20px, 15px); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-25px, 30px); }
+    66% { transform: translate(35px, -15px); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(25px, 20px); }
+    40% { transform: translate(-30px, 10px); }
+    60% { transform: translate(15px, -25px); }
+    80% { transform: translate(-20px, 20px); }
+}
+
+@keyframes float4 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-20px, -30px); }
+    50% { transform: translate(30px, 15px); }
+    75% { transform: translate(-15px, 25px); }
+}
+
+@keyframes float5 {
+    0%, 100% { transform: translate(0, 0); }
+    30% { transform: translate(20px, 25px); }
+    60% { transform: translate(-30px, -20px); }
+}
+
+@keyframes float6 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-25px, 15px); }
+    50% { transform: translate(20px, -30px); }
+    75% { transform: translate(25px, 20px); }
+}
+
+.video-item:hover {
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+}
+
+.video-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    padding: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.voice-text {
+    font-size: 12px;
+}
+
+.voice-number {
+    font-size: 24px;
+}
+
+/* POEM PAGE STYLES */
+.poem-page {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.poem-page.active {
+    display: block;
+}
+
+.canvas-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.nav-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 48px;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 100;
+    transition: opacity 0.3s;
+    font-family: 'Courier New', monospace;
+}
+
+.nav-button:hover {
+    opacity: 0.6;
+}
+
+.nav-button.prev {
+    left: 20px;
+}
+
+.nav-button.next {
+    right: 20px;
+}
+
+.subtitles {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 20px 40px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgb(255, 255, 200);
+}
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: 1px solid #fff;
+    color: rgb(255, 255, 200);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    z-index: 1001;
+    transition: all 0.3s;
+}
+
+.home-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Hide original ASCII GUI elements */
+#gui, #effectWidthInput, #effectWidthLabel, 
+#videoRecordingMessageDiv, #canvasDiv {
+    display: none !important;
+}
+
+/* Canvas styling */
+canvas {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Make all videos black and white */
+video {
+    filter: grayscale(100%);
+}
+
+.poem-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 80px 40px;
+}
+
+.poem-text {
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    color: rgb(255, 255, 200);
+    text-align: left;
+}
+
+/* HEADER */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 200);
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+}
+
+.header-link {
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.header-link:hover {
+    opacity: 0.7;
+}
+
+/* FOOTER */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 200);
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+}
